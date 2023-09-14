@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package add;
 
-option go_package = "./add";
-
 message addReq {
     string book = 1;
     int64 price = 2;

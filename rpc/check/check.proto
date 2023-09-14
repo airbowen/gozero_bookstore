@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package check;
 
-option go_package = "./check";
-
 message checkReq {
     string book = 1;
 }

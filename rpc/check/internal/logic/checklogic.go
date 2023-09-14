@@ -1,10 +1,10 @@
 package logic
 
 import (
+	"bookstore/rpc/check/internal/svc"
 	"context"
 
-	"bookstore/rpc/check/check"
-	"bookstore/rpc/check/internal/svc"
+	check "bookstore/rpc/check/checker"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -24,7 +24,13 @@ func NewCheckLogic(ctx context.Context, svcCtx *svc.ServiceContext) *CheckLogic 
 }
 
 func (l *CheckLogic) Check(in *check.CheckReq) (*check.CheckResp, error) {
-	// todo: add your logic here and delete this line
+	resp, err := l.svcCtx.Model.FindOne(in.Book)
+	if err != nil {
+		return nil, err
+	}
 
-	return &check.CheckResp{}, nil
+	return &check.CheckResp{
+		Found: true,
+		Price: resp.Price,
+	}, nil
 }

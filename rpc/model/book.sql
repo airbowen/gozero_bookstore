@@ -4,5 +4,3 @@ CREATE TABLE `book`
   `price` int NOT NULL COMMENT 'book price',
   PRIMARY KEY(`book`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-create database gozero;
